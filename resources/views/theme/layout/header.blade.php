@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <title>{{isset($app_title) ? $app_title : 'APP'}}</title>
-    @include('layout.css')
+    @include('theme.assets.css')
 </head>
 <body>
 @show

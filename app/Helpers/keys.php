@@ -31,6 +31,12 @@ const TREE_HTTP_CODE = 'tree';
 const REQUEST_URL_AUTH_LIST = EXPORT_HTTP_CODE;
 //不验证请求列表
 const REQUEST_NO_AUTH_LIST = ['download'];
+
+const ROUTER_WEB_HOME = '/';
+const ROUTER_PASSPORT_LOGIN = '/passport/login';
+const ROUTER_PASSPORT_REG = '/passport/reg';
+const ROUTER_ADMIN_HOME = '/admin';
+const CONST_SESSION_ID = 'user.id';
 // ---------------------------------------------------------
 
 /**

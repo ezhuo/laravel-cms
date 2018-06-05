@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Log;
 use Illuminate\Support\Facades\DB;
+use App\Models\Auth\Auth;
 
 class AdminMiddleware {
     /**
@@ -16,9 +17,9 @@ class AdminMiddleware {
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null) {
-//        if (true) {
-//            return redirect('/login');
-//        }
+        if (!Auth::check()) {
+            return redirect(ROUTER_PASSPORT_LOGIN);
+        }
 
         return $next($request);
     }

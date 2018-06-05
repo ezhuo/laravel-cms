@@ -2,12 +2,13 @@
 
 namespace App\Models\Auth;
 
-use Illuminate\Support\Facades\DB;
 use App\Models\Frame\Data;
 use App\Models\Data\Canton;
-use App\Models\OrgInfo;
+use Session;
+use DB;
 
 class Auth extends Data {
+
     protected $table = DB_PREFIX . '';
 
     public function __construct(array $attributes = []) {
@@ -15,7 +16,14 @@ class Auth extends Data {
         return;
     }
 
-    public static function login_pc_sys($request) {
+    public static function check() {
+        if (Session::has(CONST_SESSION_ID)) {
+            return Session::get(CONST_SESSION_ID);
+        }
+        return false;
+    }
+
+    public static function login($request) {
         $user_name = $request['name'];
         $pwd = $request['password'];
         $account = null;
@@ -45,44 +53,6 @@ class Auth extends Data {
         if (!empty($account->canton_fdn)) {
             $account->canton_name = Canton::get_name_byfdn($account->canton_fdn);
         }
-        return ['account' => $account, 'code' => 200];
-    }
-
-    public static function login_pc_org($request) {
-        $user_name = $request['name'];
-        $pwd = $request['password'];
-        $account = null;
-        if (empty($user_name) || empty($pwd)) {
-            return ['account' => $account, 'code' => 201];
-        }
-
-        $where['mobi'] = $user_name;
-        $where['login_pwd'] = password_encode($pwd);
-
-        $account = DB::table(DB_PREFIX . 'org_account')->where($where)->whereIn('status', ['10', '20', '30'])
-            ->first([
-                "org_account_id as id", "org_id", "org_fdn",
-                "dept_id", "dept_fdn", "group_id", "group_fdn",
-                "canton_id", "canton_fdn",
-                "mobi", "true_name", "email",
-                "role_id", "images",
-            ]);
-        if (empty($account)) {
-            return ['account' => $account, 'code' => 202];
-        }
-
-        if (!empty($account->canton_fdn)) {
-            $account->canton_name = Canton::get_name_byfdn($account->canton_fdn);
-        }
-
-
-        if (!empty($account->org_id)) {
-            $account->org_name = OrgInfo::get_name_byid($account->org_id);
-        }
-        $account->role_id = $account->role_id . '';
-        $account->admin = ($account->role_id == '1');
-        $account->style = $request['login_type'];
-        $account->sessionid = uniqid();
         return ['account' => $account, 'code' => 200];
     }
 

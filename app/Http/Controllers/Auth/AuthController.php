@@ -10,10 +10,11 @@ use App\Models\Data\SysMenu;
 use App\Http\Controllers\Frame\AppDataController;
 
 class AuthController extends AppDataController {
+    
     public function __construct(Request $request, Auth $model) {
         parent::__construct($request, $model);
 
-        $this->middleware('auth', ['except' => ['login_pc', 'login_mobi_org']]);
+        $this->middleware('auth', ['except' => ['login']]);
     }
 
     public function checktoken(Request $request) {
@@ -38,11 +39,7 @@ class AuthController extends AppDataController {
     // --------------------------------
 
     protected function user_login($request, $login_type) {
-        if ($login_type == 'sys') {
-            $res = Auth::login_pc_sys($request);
-        } else if ($login_type == 'org') {
-            $res = Auth::login_pc_org($request);
-        }
+        $res = Auth::login($request);
 
         if ($res['code'] == 201) {
             return return_json([], '请输入帐号和密码！', HTTP_NOAUTH);
@@ -50,7 +47,7 @@ class AuthController extends AppDataController {
         if ($res['code'] == 202) {
             return return_json([], '帐号和密码无效！', HTTP_NOAUTH);
         }
-	if ($res['code'] == 203) {
+        if ($res['code'] == 203) {
             return return_json([], '帐号因未验证、已禁用或该员工已离职等原因，故而登录失败！', HTTP_NOAUTH);
         }
         if ($res['code'] != 200) {
@@ -75,23 +72,9 @@ class AuthController extends AppDataController {
         return return_json($list, $loginInfo);
     }
 
-    public function login_pc(Request $request) {
+    public function login(Request $request) {
         $request->__source = $request['login_type'];
         return $this->user_login($request, $request['login_type']);
     }
 
-    public function login_mobi_org(Request $request) {
-        return $this->user_login($request, 'org');
-    }
-
-    public function logout(Request $request) {
-        $res = Tokens::destroy($request->header('token'));
-        if ($res != false) {
-            $request->__source = $request->__user->style;
-            SysLogs::write($request, '登出');
-            return return_json([], '注销成功...');
-        } else {
-            return return_json([], '注销失败', HTTP_NOAUTH);
-        }
-    }
 }

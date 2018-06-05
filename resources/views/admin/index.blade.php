@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('theme.layout.index')
 
 @section('css')
     @parent
