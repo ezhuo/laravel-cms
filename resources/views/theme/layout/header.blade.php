@@ -16,5 +16,4 @@
     <title>{{isset($app_title) ? $app_title : 'APP'}}</title>
     @include('theme.assets.css')
 </head>
-<body>
 @show

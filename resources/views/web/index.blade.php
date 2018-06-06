@@ -1,267 +1,325 @@
-@extends('theme.layout.index')
+@extends('web.layout.index')
 
-@section('css')
-    @parent
-    <style>
-        .get {
-            background: #1E5B94;
-            color: #fff;
-            text-align: center;
-            padding: 100px 0;
-        }
+@section('web-body')
 
-        .get-title {
-            font-size: 200%;
-            border: 2px solid #fff;
-            padding: 20px;
-            display: inline-block;
-        }
-
-        .get-btn {
-            background: #fff;
-        }
-
-        .detail {
-            background: #fff;
-        }
-
-        .detail-h2 {
-            text-align: center;
-            font-size: 150%;
-            margin: 40px 0;
-        }
-
-        .detail-h3 {
-            color: #1f8dd6;
-        }
-
-        .detail-p {
-            color: #7f8c8d;
-        }
-
-        .detail-mb {
-            margin-bottom: 30px;
-        }
-
-        .hope {
-            background: #0bb59b;
-            padding: 50px 0;
-        }
-
-        .hope-img {
-            text-align: center;
-        }
-
-        .hope-hr {
-            border-color: #149C88;
-        }
-
-        .hope-title {
-            font-size: 140%;
-        }
-
-        .about {
-            background: #fff;
-            padding: 40px 0;
-            color: #7f8c8d;
-        }
-
-        .about-color {
-            color: #34495e;
-        }
-
-        .about-title {
-            font-size: 180%;
-            padding: 30px 0 50px 0;
-            text-align: center;
-        }
-
-        .footer p {
-            color: #7f8c8d;
-            margin: 0;
-            padding: 15px 0;
-            text-align: center;
-            background: #2d3e50;
-        }
-    </style>
-@stop
-
-@section('body')
-    <div>
-        <header class="am-topbar am-topbar-fixed-top">
-            <div class="am-container">
-                <h1 class="am-topbar-brand">
-                    <a href="#">Amaze UI</a>
-                </h1>
-
-                <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-secondary am-show-sm-only"
-                        data-am-collapse="{target: '#collapse-head'}"><span class="am-sr-only">导航切换</span> <span
-                            class="am-icon-bars"></span></button>
-
-                <div class="am-collapse am-topbar-collapse" id="collapse-head">
-                    <ul class="am-nav am-nav-pills am-topbar-nav">
-                        <li class="am-active"><a href="#">首页</a></li>
-                        <li><a href="#">项目</a></li>
-                        <li class="am-dropdown" data-am-dropdown>
-                            <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                                下拉菜单 <span class="am-icon-caret-down"></span>
-                            </a>
-                            <ul class="am-dropdown-content">
-                                <li class="am-dropdown-header">标题</li>
-                                <li><a href="#">1. 默认样式</a></li>
-                                <li><a href="#">2. 基础设置</a></li>
-                                <li><a href="#">3. 文字排版</a></li>
-                                <li><a href="#">4. 网格系统</a></li>
-                            </ul>
+        <!--promo_detailed start-->
+<div class="promo_detailed">
+    <div class="promo_detailed-container">
+        <div class="container">
+            <div class="am-g">
+                <div class="am-u-md-6">
+                    <ul class="promo_detailed--list">
+                        <li class="promo_detailed--list_item">
+                <span class="promo_detailed--list_item_icon">
+                  <i class="am-icon-diamond"></i>
+                </span>
+                            <dl>
+                                <dt>多层次的用户管理功能</dt>
+                                <dd>
+                                    支持用户的添加和导入，与AD可以进行紧密的整合，实时同步最新的用户信息，从而方便对用户进行管理。
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="promo_detailed--list_item">
+                <span class="promo_detailed--list_item_icon">
+                  <i class="am-icon-dollar" style="margin-left: 15px;"></i>
+                </span>
+                            <dl>
+                                <dt>丰富的日志报表系统</dt>
+                                <dd>
+                                    提供实时监控平台，日志和报告系统，帮助管理员对系统的整体情况有全面的了解。
+                                </dd>
+                            </dl>
+                        </li>
+                        <li class="promo_detailed--list_item">
+                <span class="promo_detailed--list_item_icon">
+                  <i class="am-icon-bank" style="margin-left: 10px;"></i>
+                </span>
+                            <dl>
+                                <dt>丰富的应用程序管理</dt>
+                                <dd>
+                                    支持在线应用、适配应用、本地应用等多种应用类型。使用户可以最便捷的获取企业的各种应用。
+                                </dd>
+                            </dl>
                         </li>
                     </ul>
-
-                    <div class="am-topbar-right">
-                        <button class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"><span
-                                    class="am-icon-pencil"></span> 注册
-                        </button>
-                    </div>
-
-                    <div class="am-topbar-right">
-                        <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm"><span class="am-icon-user"></span>
-                            登录
-                        </button>
-                    </div>
                 </div>
-            </div>
-        </header>
 
-        <div class="get">
-            <div class="am-g">
-                <div class="am-u-lg-12">
-                    <h1 class="get-title">Amaze UI - HTML5 跨屏前端框架</h1>
-
-                    <p>
-                        期待你的参与，共同打造一个简单易用的前端框架
-                    </p>
-
-                    <p>
-                        <a href="http://amazeui.org" class="am-btn am-btn-sm get-btn">获取新get技能√</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="detail">
-            <div class="am-g am-container">
-                <div class="am-u-lg-12">
-                    <h2 class="detail-h2">One Web 、Any Device，期待和你一起去实现!</h2>
-
-                    <div class="am-g">
-                        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
-
-                            <h3 class="detail-h3">
-                                <i class="am-icon-mobile am-icon-sm"></i>
-                                为移动而生
-                            </h3>
-
-                            <p class="detail-p">
-                                Amaze UI 采用业内先进的 mobile first 理念，从小屏逐步扩展到大屏，最终实现所有屏幕适配，适应移动互联潮流。
-                            </p>
+                <div class="am-u-md-6">
+                    <div class="promo_detailed--cta">
+                        <div class="promo_detailed--cta_wrap">
+                            <div class="promo_detailed--cta_text">
+                                提供设备的远程锁定，擦除等功能。在设备出现遗失的情况下可以最大程度的保护企业的信息不被泄露。
+                            </div>
+                            <div class="promo_detailed--cta_footer">
+                                <button type="button" class="am-btn am-btn-danger">MORE&nbsp;&nbsp;>></button>
+                            </div>
                         </div>
-                        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
-                            <h3 class="detail-h3">
-                                <i class="am-icon-cogs am-icon-sm"></i>
-                                组件丰富，模块化
-                            </h3>
-
-                            <p class="detail-p">
-                                Amaze UI 含近 20 个 CSS 组件、10 个 JS 组件，更有 17 款包含近 60 个主题的
-                                Widgets，可快速构建界面出色、体验优秀的跨屏页面，大幅度提升你的开发效率。
-                            </p>
-                        </div>
-                        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
-                            <h3 class="detail-h3">
-                                <i class="am-icon-check-square-o am-icon-sm"></i>
-                                本地化支持
-                            </h3>
-
-                            <p class="detail-p">
-                                相比国外的前端框架，Amaze UI 专注解决中文排版优化问题，根据操作系统调整字体，实现最佳中文排版效果；针对国内主流浏览器及 App
-                                内置浏览器提供更好的兼容性支持，为你节省大量兼容性调试时间。
-                            </p>
-                        </div>
-                        <div class="am-u-lg-3 am-u-md-6 am-u-sm-12 detail-mb">
-                            <h3 class="detail-h3">
-                                <i class="am-icon-send-o am-icon-sm"></i>
-                                轻量级，高性能
-                            </h3>
-
-                            <p class="detail-p">
-                                Amaze UI 非常注重性能，基于轻量的 Zepto.js 开发，并使用 CSS3 来做动画交互，平滑、高效，更适合移动设备，让你的 Web 应用可以高速载入。
-                            </p>
-                        </div>
+                        <div class="promo_detailed-img am-show-sm-only"
+                             style="background-image: url('assets/images/index/promo_detailed_bg.jpg');"></div>
                     </div>
                 </div>
+
             </div>
         </div>
-
-        <div class="hope">
-            <div class="am-g am-container">
-                <div class="am-u-lg-4 am-u-md-6 am-u-sm-12 hope-img">
-                    <img src="assets/i/examples/landing.png" alt=""
-                         data-am-scrollspy="{animation:'slide-left', repeat: false}">
-                    <hr class="am-article-divider am-show-sm-only hope-hr">
-                </div>
-                <div class="am-u-lg-8 am-u-md-6 am-u-sm-12">
-                    <h2 class="hope-title">同我们一起打造你的前端框架</h2>
-
-                    <p>
-                        在知识爆炸的年代，我们不愿成为知识的过客，拥抱开源文化，发挥社区的力量，参与到Amaze Ui开源项目能获得自我提升。
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="about">
-            <div class="am-g am-container">
-                <div class="am-u-lg-12">
-                    <h2 class="about-title about-color">Amaze UI 崇尚开放、自由，非常欢迎大家的参与</h2>
-
-                    <div class="am-g">
-                        <div class="am-u-lg-6 am-u-md-4 am-u-sm-12">
-                            <form class="am-form">
-                                <label for="name" class="about-color">你的姓名</label>
-                                <input id="name" type="text">
-                                <br/>
-                                <label for="email" class="about-color">你的邮箱</label>
-                                <input id="email" type="email">
-                                <br/>
-                                <label for="message" class="about-color">你的留言</label>
-                                <textarea id="message"></textarea>
-                                <br/>
-                                <button type="submit" class="am-btn am-btn-primary am-btn-sm"><i
-                                            class="am-icon-check"></i> 提 交
-                                </button>
-                            </form>
-                            <hr class="am-article-divider am-show-sm-only">
-                        </div>
-
-                        <div class="am-u-lg-6 am-u-md-8 am-u-sm-12">
-                            <h4 class="about-color">关于我们</h4>
-
-                            <p>AllMobilize Inc (美通云动科技有限公司)
-                                由前微软美国总部IE浏览器核心研发团队成员及移动互联网行业专家在美国西雅图创立，旨在解决网页在不同移动设备屏幕上的适配问题。基于国际专利技术并结合最前沿的HTML5技术，云适配解决方案可以帮助企业快速将桌面版网站适配到各种移动设备终端的屏幕上，不仅显著地提高了企业网站的用户体验以及销售转化率，而且大幅度地节省了企业开发和维护移动网站的费用。</p>
-                            <h4 class="about-color">团队介绍</h4>
-
-                            <p>AllMobilize Inc
-                                获得了微软创投孵化器的支持，其领先科技已得到全球多家企业及机构的认可与信赖，客户包括全球500强企业、美国政府、国内政府机关、国内外上市公司、以及互联网标准化组织W3C。</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <p>© 2014 <a href="http://www.yunshipei.com" target="_blank">AllMobilize, Inc.</a> Licensed under <a
-                        href="http://opensource.org/licenses/MIT" target="_blank">MIT license</a>. by the AmazeUI Team.
-            </p>
-        </footer>
     </div>
+    <div class="promo_detailed-img am-hide-sm-only"
+         style="background-image: url('assets/images/index/promo_detailed_bg.jpg');"></div>
+</div>
+<!--promo_detailed end-->
+
+<div class="section" style="border-bottom: 1px solid #e9e9e9;">
+    <div class="container">
+        <div class="section--header">
+            <h2 class="section--title">我们的服务</h2>
+            <p class="section--description">
+                全球领先HTML5企业移动化解决方案供应商，由前微软美国总部IE浏览器核心研发团队成员及移动互联网行业专家在美国西雅图创立
+                <br>获得了微软创投的扶持以及晨兴资本、IDG资本、天创资本等国际顶级风投机构的投资。
+            </p>
+        </div>
+
+        <!--index-container start-->
+        <div class="index-container">
+            <div class="am-g">
+                <div class="am-u-md-3">
+                    <div class="service_item">
+                        <i class="service_item--icon am-icon-diamond"></i>
+                        <h3 class="service_item--title">多页面工作</h3>
+                        <div class="service_item--text">
+                            <p>标签栏可切换，不必为了新内容而被迫跳转界面，多项工作内容并行处理</p>
+                        </div>
+                        <footer class="service_item--footer"><a href="#" class="link -blue_light">Learn More>></a>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="am-u-md-3">
+                    <div class="service_item">
+                        <i class="service_item--icon am-icon-user"></i>
+                        <h3 class="service_item--title">统一入口</h3>
+                        <div class="service_item--text">
+                            <p>集成企业内网所有资源，OA、CRM、ERP、邮件系统，单点登录，无需重复输入密码</p>
+                        </div>
+                        <footer class="service_item--footer"><a href="#" class="link -blue_light">Learn More>></a>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="am-u-md-3">
+                    <div class="service_item">
+                        <i class="service_item--icon am-icon-umbrella"></i>
+                        <h3 class="service_item--title">一键直达</h3>
+                        <div class="service_item--text">
+                            <p>办公流程太多，搜索框输入（或语音输入），可以快速找到核心内容</p>
+                        </div>
+                        <footer class="service_item--footer"><a href="#" class="link -blue_light">Learn More>></a>
+                        </footer>
+                    </div>
+                </div>
+
+                <div class="am-u-md-3">
+                    <div class="service_item">
+                        <i class="service_item--icon am-icon-briefcase"></i>
+                        <h3 class="service_item--title">语音助手</h3>
+                        <div class="service_item--text">
+                            <p>不方便打字时，可以直接用语音输入想要的内容，使您的双手得到解放</p>
+                        </div>
+                        <footer class="service_item--footer"><a href="#" class="link -blue_light">Learn More>></a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--index-container end-->
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="section--header">
+            <h2 class="section--title">产品价格</h2>
+            <p class="section--description">
+                全球领先HTML5企业移动化解决方案供应商，由前微软美国总部IE浏览器核心研发团队成员及移动互联网行业专家在美国西雅图创立
+                <br>获得了微软创投的扶持以及晨兴资本、IDG资本、天创资本等国际顶级风投机构的投资。
+            </p>
+        </div>
+
+        <div class="pricing_compare">
+            <ul class="pricing_compare--options">
+                <li class="pricing_compare--option"><i class="pricing_compare--option_icon am-icon-group"></i>Company
+                    Size
+                </li>
+                <li class="pricing_compare--option"><i class="pricing_compare--option_icon am-icon-umbrella"></i>Insurance
+                    Coverage
+                </li>
+                <li class="pricing_compare--option"><i class="pricing_compare--option_icon am-icon-life-ring"></i>Number
+                    of Consultations
+                </li>
+                <li class="pricing_compare--option"><i class="pricing_compare--option_icon am-icon-street-view"></i>Phone
+                    Support
+                </li>
+                <li class="pricing_compare--option"><i class="pricing_compare--option_icon am-icon-dollar"></i>Investments
+                    Protection
+                </li>
+            </ul>
+            <div class="pricing_compare--plans">
+                <div class="pricing_plan">
+                    <header class="pricing_plan--header">
+                        <h2 class="pricing_plan--title"><b>BASIC </b>PLAN</h2><strong class="pricing_plan--price">$69
+                            <small>/m</small>
+                        </strong>
+                    </header>
+                    <ul class="pricing_plan--options">
+                        <li class="pricing_plan--option"><b>1-9 </b>people</li>
+                        <li class="pricing_plan--option"><b>12</b>months</li>
+                        <li class="pricing_plan--option"><b>10 </b>monthly</li>
+                        <li class="pricing_plan--option"><b>3 </b>weeks</li>
+                        <li class="pricing_plan--option"><b>10 </b>millions</li>
+                    </ul>
+                    <footer class="pricing_plan--footer">
+                        <button type="button" class="am-btn am-btn-secondary">choose</button>
+                    </footer>
+                </div>
+                <div class="pricing_plan popular">
+                    <header class="pricing_plan--header"><span class="pricing_plan--label popular">Popular</span>
+                        <h2 class="pricing_plan--title"><b>plus </b>PLAN</h2><strong class="pricing_plan--price">$99
+                            <small>/m</small>
+                        </strong>
+                    </header>
+                    <ul class="pricing_plan--options">
+                        <li class="pricing_plan--option"><b>10-99 </b>people</li>
+                        <li class="pricing_plan--option"><b>24</b>months</li>
+                        <li class="pricing_plan--option"><b>15 </b>monthly</li>
+                        <li class="pricing_plan--option"><b>6 </b>weeks</li>
+                        <li class="pricing_plan--option"><b>30 </b>millions</li>
+                    </ul>
+                    <footer class="pricing_plan--footer">
+                        <button type="button" class="am-btn am-btn-danger">choose</button>
+                    </footer>
+                </div>
+                <div class="pricing_plan">
+                    <header class="pricing_plan--header">
+                        <h2 class="pricing_plan--title"><b>PRO </b>PLAN</h2><strong class="pricing_plan--price">
+                            <small>Custom</small>
+                        </strong>
+                    </header>
+                    <ul class="pricing_plan--options">
+                        <li class="pricing_plan--option"><b>Unlimited </b>people</li>
+                        <li class="pricing_plan--option"><b>Unlimited </b>time</li>
+                        <li class="pricing_plan--option"><b>Unlimited </b>time</li>
+                        <li class="pricing_plan--option"><b>Unlimited </b>time</li>
+                        <li class="pricing_plan--option"><b>Unlimited </b>sum</li>
+                    </ul>
+                    <footer class="pricing_plan--footer">
+                        <button type="button" class="am-btn am-btn-secondary">choose</button>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="section promo_banner-container">
+    <!--index-container start-->
+    <div class="promo_banner-box">
+        <div class="container">
+            <h2 class="promo_banner--title">期待您的加入</h2>
+            <p class="promo_banner--text">
+                我们成立了三年，正用自己的技术力量一步一步改变世界。
+                <br> 我们开创了中国首个开源HTML5跨屏前端框架、可见即可得的IDE、无障碍网页我们是全球独一无二的
+                <br> 云适配技术，我们的目标是打造极致的网页体验。
+                <footer class="promo_banner--footer">
+                    <button type="button" class="am-btn am-btn-secondary">MORE>></button>
+                </footer>
+        </div>
+    </div>
+    <!--index-container end-->
+</div>
+
+<!--customer-logo start-->
+<div class="customer-logo">
+    <div class="container">
+        <div class="am-g">
+            <div class="am-u-md-2 am-u-sm-4 customer-box">
+                <a href="#">
+                    <img class="normal-logo" src="assets/images/index/customer_logo_Microsoft.png" alt=""/>
+                    <img class="am-active" alt="" src="assets/images/index/customer_logo_Microsoft_active.png"
+                         alt=""/>
+                </a>
+            </div>
+            <div class="am-u-md-2 am-u-sm-4 customer-box">
+                <a href="#">
+                    <img class="normal-logo" src="assets/images/index/customer_logo_qhdx.png" alt=""/>
+                    <img class="am-active" src="assets/images/index/customer_logo_qhdx_active.png" alt=""/>
+                </a>
+            </div>
+            <div class="am-u-md-2 am-u-sm-4 customer-box">
+                <a href="#">
+                    <img class="normal-logo" src="assets/images/index/customer_logo_gmw.png" alt=""/>
+                    <img class="am-active" src="assets/images/index/customer_logo_gmw_active.png" alt=""/>
+                </a>
+            </div>
+            <div class="am-u-md-2 am-u-sm-4 customer-box">
+                <a href="#">
+                    <img class="normal-logo" src="assets/images/index/customer_logo_gov.png" alt=""/>
+                    <img class="am-active" src="assets/images/index/customer_logo_gov_active.png" alt=""/>
+                </a>
+            </div>
+            <div class="am-u-md-2 am-u-sm-4 customer-box">
+                <a href="#">
+                    <img class="normal-logo" src="assets/images/index/customer_logo_jl.png" alt=""/>
+                    <img class="am-active" src="assets/images/index/customer_logo_jl_active.png" alt=""/>
+                </a>
+            </div>
+            <div class="am-u-md-2 am-u-sm-4 customer-box">
+                <a href="#">
+                    <img class="normal-logo" src="assets/images/index/customer_logo_hx.png" alt=""/>
+                    <img class="am-active" src="assets/images/index/customer_logo_hx_active.png" alt=""/>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--customer-logo end-->
+
+<div class="section" style="margin-top:0px;background-image: url('assets/images/pattern-light.png');">
+    <div class="container">
+        <!--index-container start-->
+        <div class="index-container">
+            <div class="am-g">
+                <div class="am-u-md-4">
+                    <div class="contact_card">
+                        <i style="color:#59bcdb" class="contact_card--icon am-icon-phone"></i>
+                        <strong class="contact_card--title">Contact Us</strong>
+                        <p class="contact_card--text">Feel free to call us on <br> <strong>0 (855) 233-5385</strong>
+                            <br> Monday - Friday, 8am - 7pm</p>
+                        <button type="button" class="am-btn am-btn-secondary">Order a Call Back</button>
+                    </div>
+                </div>
+                <div class="am-u-md-4">
+                    <div class="contact_card">
+                        <i style="color:#59bcdb" class="contact_card--icon am-icon-envelope-o"></i>
+                        <strong class="contact_card--title">Our Email</strong>
+                        <p class="contact_card--text">Drop us a line anytime at <br> <strong><a
+                                        href="mailto:info@financed.com">info@financed.com</a>,</strong> <br> and
+                            we’ll get back soon.</p>
+                        <button type="button" class="am-btn am-btn-secondary">Start Writing</button>
+                    </div>
+                </div>
+                <div class="am-u-md-4">
+                    <div class="contact_card">
+                        <i style="color:#59bcdb" class="contact_card--icon am-icon-map-marker"></i>
+                        <strong class="contact_card--title">Our Address</strong>
+                        <p class="contact_card--text">Come visit us at <br> <strong>Stock Building, New
+                                York,</strong> <br> NY 93459</p>
+                        <button type="button" class="am-btn am-btn-secondary">See the Map</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--index-container end-->
+    </div>
+</div>
 
 @stop

@@ -6,14 +6,14 @@ use App\Models\Frame\Base;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Frame\AppDataController;
 
-class IndexController extends AppDataController {
+class DashboardController extends AppDataController {
 
     public function __construct(Request $request, Base $model) {
         return parent::__construct($request, $model);
     }
 
     public function index(Request $request) {
-        return response()->view('admin.index');
+        return response()->view('admin.dashboard.index');
     }
 
     public function err_404(Request $request) {

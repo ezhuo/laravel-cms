@@ -10,7 +10,7 @@ use App\Models\Data\SysMenu;
 use App\Http\Controllers\Frame\AppDataController;
 
 class AuthController extends AppDataController {
-    
+
     public function __construct(Request $request, Auth $model) {
         parent::__construct($request, $model);
 

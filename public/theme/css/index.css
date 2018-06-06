@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    direction: ltr;
+    overflow-x: hidden;
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+}
